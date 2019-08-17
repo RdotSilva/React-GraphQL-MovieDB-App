@@ -15,7 +15,9 @@ const NewMoviesType = new GraphQLObjectType({
 	fields: {
 		id: { type: GraphQLInt },
 		poster_path: { type: GraphQLString },
-		title: { type: GraphQLString }
+		title: { type: GraphQLString },
+		overview: { type: GraphQLString },
+		release_date: { type: GraphQLString }
 	}
 });
 
