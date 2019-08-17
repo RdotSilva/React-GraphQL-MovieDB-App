@@ -26,17 +26,20 @@ const MovieCard = props => {
 					<Typography gutterBottom variant="h5" component="h2">
 						{movieData.title}
 					</Typography>
+					<Typography gutterBottom variant="body2" component="p">
+						{movieData.release_date}
+					</Typography>
 					<Typography variant="body2" color="textSecondary" component="p">
-						{movieData.id}
+						{movieData.overview}
 					</Typography>
 				</CardContent>
 			</CardActionArea>
 			<CardActions>
 				<Button size="small" color="primary">
-					Share
+					IMDB
 				</Button>
 				<Button size="small" color="primary">
-					Learn More
+					Add to watch list
 				</Button>
 			</CardActions>
 		</Card>
@@ -45,8 +48,8 @@ const MovieCard = props => {
 
 const useStyles = makeStyles({
 	card: {
-		width: 400,
-		height: 400,
+		width: 500,
+		height: 450,
 		margin: 5
 	},
 	media: {
