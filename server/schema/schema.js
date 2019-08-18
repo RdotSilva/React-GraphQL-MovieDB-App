@@ -21,6 +21,14 @@ const NewMoviesType = new GraphQLObjectType({
 	}
 });
 
+const VideoType = new GraphQLObjectType({
+	name: "Video",
+	fields: {
+		id: { type: GraphQLString },
+		key: { type: GraphQLString }
+	}
+});
+
 const MovieInfoType = new GraphQLObjectType({
 	name: "MovieInfo",
 	fields: {
@@ -42,19 +50,11 @@ const MovieInfoType = new GraphQLObjectType({
 					.get(
 						`https://api.themoviedb.org/3/movie/${
 							parentValue.id
-						}/videos?api_key=${process.env.API}&language=en-US`
+						}/videos?api_key=${keys.apiKey}&language=en-US`
 					)
 					.then(res => res.data.results);
 			}
 		}
-	}
-});
-
-const VideoType = new GraphQLObjectType({
-	name: "Video",
-	fields: {
-		id: { type: GraphQLString },
-		key: { type: GraphQLString }
 	}
 });
 
@@ -67,7 +67,7 @@ const RootQuery = new GraphQLObjectType({
 				return axios
 					.get(
 						`https://api.themoviedb.org/3/movie/now_playing?api_key=${
-							process.env.API
+							keys.apiKey
 						}&language=en-US&page=1`
 					)
 					.then(res => {
@@ -88,7 +88,7 @@ const RootQuery = new GraphQLObjectType({
 				return axios
 					.get(
 						`https://api.themoviedb.org/3/movie/${args.id}?api_key=${
-							process.env.API
+							keys.apiKey
 						}&language=en-US&page=1`
 					)
 					.then(res => {
