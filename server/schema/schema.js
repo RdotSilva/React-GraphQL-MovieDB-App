@@ -87,6 +87,19 @@ const MovieInfoType = new GraphQLObjectType({
 					)
 					.then(res => res.data.results);
 			}
+		},
+		movieCredits: {
+			type: new GraphQLList(MovieCreditsType),
+			args: { id: { type: GraphQLString } },
+			resolve(parentValue, args) {
+				return axios
+					.get(
+						`https://api.themoviedb.org/3/movie/${
+							parentValue.id
+						}/credits?api_key=${keys.apiKey}&language=en-US&page=1`
+					)
+					.then(res => res.data.cast.filter(cast => cast.profile_path));
+			}
 		}
 	}
 });
