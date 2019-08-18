@@ -29,6 +29,17 @@ const VideoType = new GraphQLObjectType({
 	}
 });
 
+const MovieCreditsType = new GraphQLObjectType({
+	name: "MovieCredits",
+	fields: {
+		id: { type: GraphQLString },
+		character: { type: GraphQLString },
+		name: { type: GraphQLString },
+		profile_path: { type: GraphQLString },
+		order: { type: GraphQLString }
+	}
+});
+
 const MovieInfoType = new GraphQLObjectType({
 	name: "MovieInfo",
 	fields: {
