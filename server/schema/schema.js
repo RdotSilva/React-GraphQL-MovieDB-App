@@ -24,7 +24,7 @@ const NewMoviesType = new GraphQLObjectType({
 const MovieInfoType = new GraphQLObjectType({
 	name: "MovieInfo",
 	fields: {
-		id: { type: GraphQLInit },
+		id: { type: GraphQLInt },
 		overview: { type: GraphQLString },
 		title: { type: GraphQLString },
 		poster_path: { type: GraphQLString },
@@ -57,6 +57,27 @@ const RootQuery = new GraphQLObjectType({
 									"https://image.tmdb.org/t/p/w500" + movie.poster_path)
 						);
 						return movies;
+					});
+			}
+		},
+		movieInfo: {
+			type: MovieInfoType,
+			args: { id: { type: GraphQLString } },
+			resolve(parentValue, args) {
+				return axios
+					.get(
+						`https://api.themoviedb.org/3/movie/${args.id}?api_key=${
+							process.env.API
+						}&language=en-US&page=1`
+					)
+					.then(res => {
+						const movie = res.data;
+						movie.genres = movie.genres.map(g => g.name).join(", ");
+						movie.production_companies = movie.production_companies
+							.map(c => c.name)
+							.join(", ");
+						movie.runtime += " min.";
+						return movie;
 					});
 			}
 		}
