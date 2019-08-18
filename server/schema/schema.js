@@ -33,7 +33,20 @@ const MovieInfoType = new GraphQLObjectType({
 		vote_average: { type: GraphQLString },
 		production_companies: { type: GraphQLString },
 		vote_average: { type: GraphQLString },
-		runtime: { type: GraphQLString }
+		runtime: { type: GraphQLString },
+		videos: {
+			type: new GraphQLList(VideoType),
+			args: { id: { type: GraphQLString } },
+			resolve(parentValue, args) {
+				return axios
+					.get(
+						`https://api.themoviedb.org/3/movie/${
+							parentValue.id
+						}/videos?api_key=${process.env.API}&language=en-US`
+					)
+					.then(res => res.data.results);
+			}
+		}
 	}
 });
 
