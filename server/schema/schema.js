@@ -21,6 +21,22 @@ const NewMoviesType = new GraphQLObjectType({
 	}
 });
 
+const MovieInfoType = new GraphQLObjectType({
+	name: "MovieInfo",
+	fields: {
+		id: { type: GraphQLInit },
+		overview: { type: GraphQLString },
+		title: { type: GraphQLString },
+		poster_path: { type: GraphQLString },
+		genres: { type: GraphQLString },
+		release_date: { type: GraphQLString },
+		vote_average: { type: GraphQLString },
+		production_companies: { type: GraphQLString },
+		vote_average: { type: GraphQLString },
+		runtime: { type: GraphQLString }
+	}
+});
+
 const RootQuery = new GraphQLObjectType({
 	name: "RootQueryType",
 	fields: {
