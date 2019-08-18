@@ -37,6 +37,14 @@ const MovieInfoType = new GraphQLObjectType({
 	}
 });
 
+const VideoType = new GraphQLObjectType({
+	name: "Video",
+	fields: {
+		id: { type: GraphQLString },
+		key: { type: GraphQLString }
+	}
+});
+
 const RootQuery = new GraphQLObjectType({
 	name: "RootQueryType",
 	fields: {
