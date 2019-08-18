@@ -40,6 +40,15 @@ const MovieCreditsType = new GraphQLObjectType({
 	}
 });
 
+const MovieReviewsType = new GraphQLObjectType({
+	name: "MovieReviews",
+	fields: {
+		id: { type: GraphQLString },
+		content: { type: GraphQLString },
+		author: { type: GraphQLString }
+	}
+});
+
 const MovieInfoType = new GraphQLObjectType({
 	name: "MovieInfo",
 	fields: {
