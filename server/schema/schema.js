@@ -120,6 +120,20 @@ const RootQuery = new GraphQLObjectType({
 					.then(res => res.data.results);
 			}
 		},
+		movieReviews: {
+			type: new GraphQLList(MovieReviewsType),
+			args: { id: { type: GraphQLString } },
+			resolve(parentValue, args) {
+				return axios
+					.get(
+						`https://api.themoviedb.org/3/movie/${args.id}/reviews?api_key=${
+							keys.apiKey
+						}&language=en-US&page=1`
+					)
+					.then(res => res.data.results);
+			}
+		},
+
 		newMovies: {
 			type: new GraphQLList(NewMoviesType),
 			resolve() {
