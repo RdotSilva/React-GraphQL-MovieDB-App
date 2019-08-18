@@ -107,6 +107,19 @@ const MovieInfoType = new GraphQLObjectType({
 const RootQuery = new GraphQLObjectType({
 	name: "RootQueryType",
 	fields: {
+		videos: {
+			type: new GraphQLList(VideoType),
+			args: { id: { type: GraphQLString } },
+			resolve(parentValue, args) {
+				return axios
+					.get(
+						`https://api.themoviedb.org/3/movie/${args.id}/videos?api_key=${
+							keys.apiKey
+						}&language=en-US`
+					)
+					.then(res => res.data.results);
+			}
+		},
 		newMovies: {
 			type: new GraphQLList(NewMoviesType),
 			resolve() {
