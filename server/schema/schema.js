@@ -62,6 +62,7 @@ const MovieInfoType = new GraphQLObjectType({
 		production_companies: { type: GraphQLString },
 		vote_average: { type: GraphQLString },
 		runtime: { type: GraphQLString },
+		imdb_id: { type: GraphQLString },
 		videos: {
 			type: new GraphQLList(VideoType),
 			args: { id: { type: GraphQLString } },
@@ -185,6 +186,7 @@ const RootQuery = new GraphQLObjectType({
 						movie.runtime += " min.";
 						movie.poster_path =
 							"https://image.tmdb.org/t/p/w500" + movie.poster_path;
+						movie.imdb_id = `https://www.imdb.com/title/${movie.imdb_id}`;
 						return movie;
 					});
 			}

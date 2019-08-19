@@ -20,6 +20,7 @@ const getMovieInfo = gql`
 			overview
 			release_date
 			title
+			imdb_id
 			videos {
 				id
 				key
