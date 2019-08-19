@@ -16,7 +16,19 @@ const MovieSearch = props => {
 		return <MovieCard movieData={movie} />;
 	};
 
-	return <div />;
+	return (
+		<div style={{ width: "100%" }}>
+			<Box
+				display="flex"
+				p={1}
+				bgcolor="background.paper"
+				justifyContent="center"
+				flexWrap="wrap"
+			>
+				{renderMovieInfo()}
+			</Box>
+		</div>
+	);
 };
 
 export default MovieSearch;
