@@ -9,6 +9,7 @@ import Box from "@material-ui/core/Box";
 
 const NewMovies = props => {
 	const { loading, data } = useQuery(getNewMovies);
+	console.log(data.newMovies);
 
 	if (loading) return <h1>Loading...</h1>;
 

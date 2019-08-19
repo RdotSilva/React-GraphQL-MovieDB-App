@@ -1,4 +1,5 @@
 import React from "react";
+
 import { makeStyles } from "@material-ui/core/styles";
 import Card from "@material-ui/core/Card";
 import CardActionArea from "@material-ui/core/CardActionArea";
@@ -36,7 +37,7 @@ const MovieCard = props => {
 			</CardActionArea>
 			<CardActions>
 				<Button size="small" color="primary">
-					IMDB
+					<a href={`${movieData.imdb_id}`}>IMDB</a>
 				</Button>
 				<Button size="small" color="primary">
 					Add to watch list
