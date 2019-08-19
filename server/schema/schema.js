@@ -178,9 +178,9 @@ const RootQuery = new GraphQLObjectType({
 					)
 					.then(res => {
 						const movie = res.data;
-						movie.genres = movie.genres.map(g => g.name).join(", ");
+						movie.genres = movie.genres.map(genre => genre.name).join(", ");
 						movie.production_companies = movie.production_companies
-							.map(c => c.name)
+							.map(company => company.name)
 							.join(", ");
 						movie.runtime += " min.";
 						return movie;
