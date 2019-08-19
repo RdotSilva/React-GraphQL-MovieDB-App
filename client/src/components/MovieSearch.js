@@ -10,10 +10,13 @@ import Box from "@material-ui/core/Box";
 const MovieSearch = props => {
 	const { loading, data } = useQuery(getMovieInfo);
 
+	console.log(data.movieInfo);
+	const { movieInfo } = data;
+
 	if (loading) return <h1>Loading...</h1>;
 
 	const renderMovieInfo = () => {
-		return <MovieCard movieData={movie} />;
+		return <MovieCard movieData={movieInfo} />;
 	};
 
 	return (

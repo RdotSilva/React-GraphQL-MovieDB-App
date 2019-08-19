@@ -15,6 +15,10 @@ const getNewMovies = gql`
 const getMovieInfo = gql`
 	{
 		movieInfo(id: "284054") {
+			id
+			poster_path
+			overview
+			release_date
 			title
 			videos {
 				id

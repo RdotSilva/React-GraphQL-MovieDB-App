@@ -183,6 +183,8 @@ const RootQuery = new GraphQLObjectType({
 							.map(company => company.name)
 							.join(", ");
 						movie.runtime += " min.";
+						movie.poster_path =
+							"https://image.tmdb.org/t/p/w500" + movie.poster_path;
 						return movie;
 					});
 			}
