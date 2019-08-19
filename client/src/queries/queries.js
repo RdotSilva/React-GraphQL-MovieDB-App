@@ -13,9 +13,9 @@ const getNewMovies = gql`
 `;
 
 const GET_MOVIE_INFO = gql`
-query MovieInfoQuery($id ID!) {
-	movieInfo(id: $id) {
-		id
+	query MovieInfo($id: String!) {
+		movieInfo(id: $id) {
+			id
 			poster_path
 			overview
 			release_date
@@ -27,7 +27,7 @@ query MovieInfoQuery($id ID!) {
 			}
 		}
 	}
-}`;
+`;
 
 const getMovieInfo = gql`
 	{
@@ -46,4 +46,4 @@ const getMovieInfo = gql`
 	}
 `;
 
-export { getNewMovies, getMovieInfo };
+export { getNewMovies, getMovieInfo, GET_MOVIE_INFO };

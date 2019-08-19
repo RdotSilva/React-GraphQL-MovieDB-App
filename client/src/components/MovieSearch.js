@@ -1,19 +1,22 @@
 import React from "react";
 import { useQuery } from "@apollo/react-hooks";
-import { getMovieInfo } from "../queries/queries";
+import { GET_MOVIE_INFO } from "../queries/queries";
 import MovieCard from "../components/MovieCard";
 import { Link } from "react-router-dom";
 
 // Material UI
 import Box from "@material-ui/core/Box";
 
-const MovieSearch = props => {
-	const { loading, data } = useQuery(getMovieInfo);
+// Use this for testing
+const hardCodedMovieId = "284054";
 
-	console.log(data.movieInfo);
-	const { movieInfo } = data;
+const MovieSearch = props => {
+	const { loading, data } = useQuery(GET_MOVIE_INFO, {
+		variables: { id: hardCodedMovieId }
+	});
 
 	if (loading) return <h1>Loading...</h1>;
+	const { movieInfo } = data;
 
 	const renderMovieInfo = () => {
 		return <MovieCard movieData={movieInfo} />;
