@@ -24,4 +24,4 @@ const getMovieInfo = gql`
 	}
 `;
 
-export { getNewMovies };
+export { getNewMovies, getMovieInfo };
