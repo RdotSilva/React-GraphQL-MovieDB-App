@@ -12,4 +12,16 @@ const getNewMovies = gql`
 	}
 `;
 
+const getMovieInfo = gql`
+	{
+		movieInfo(id: "284054") {
+			title
+			videos {
+				id
+				key
+			}
+		}
+	}
+`;
+
 export { getNewMovies };
