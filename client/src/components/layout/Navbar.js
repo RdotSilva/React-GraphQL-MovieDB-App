@@ -41,7 +41,7 @@ const Navbar = props => {
 							Search Movies
 						</Link>
 					</Typography>
-					<Button color="inherit">Login</Button>
+					{/* <Button color="inherit">Login</Button> */}
 				</Toolbar>
 			</AppBar>
 		</div>
