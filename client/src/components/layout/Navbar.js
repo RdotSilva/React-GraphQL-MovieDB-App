@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 // Material UI
 import { makeStyles } from "@material-ui/core/styles";
@@ -25,7 +26,20 @@ const Navbar = props => {
 						<MenuIcon />
 					</IconButton>
 					<Typography variant="h6" className={classes.title}>
-						News
+						<Link
+							to="/newMovies"
+							style={{ textDecoration: "none", color: "#FFF" }}
+						>
+							New Movies
+						</Link>
+					</Typography>
+					<Typography variant="h6" className={classes.title}>
+						<Link
+							to="/movieSearch"
+							style={{ textDecoration: "none", color: "#FFF" }}
+						>
+							Search Movies
+						</Link>
 					</Typography>
 					<Button color="inherit">Login</Button>
 				</Toolbar>
@@ -41,9 +55,7 @@ const useStyles = makeStyles(theme => ({
 	menuButton: {
 		marginRight: theme.spacing(2)
 	},
-	title: {
-		flexGrow: 1
-	}
+	title: { justifyContent: "center", margin: 10 }
 }));
 
 export default Navbar;
