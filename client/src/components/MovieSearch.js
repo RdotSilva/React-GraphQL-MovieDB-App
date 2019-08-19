@@ -11,6 +11,11 @@ const MovieSearch = props => {
 	const { loading, data } = useQuery(getMovieInfo);
 
 	if (loading) return <h1>Loading...</h1>;
+
+	const renderMovieInfo = () => {
+		return <MovieCard movieData={movie} />;
+	};
+
 	return <div />;
 };
 
