@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { useQuery } from "@apollo/react-hooks";
 import { SEARCH_MOVIES } from "../queries/queries";
 import MovieCard from "../components/MovieCard";
@@ -12,13 +12,32 @@ import Box from "@material-ui/core/Box";
 const hardCodedMovieName = "red";
 
 const MovieSearch = props => {
+	const [searchValue, setSearchValue] = useState("");
+
 	const { loading, data } = useQuery(SEARCH_MOVIES, {
-		variables: { searchField: hardCodedMovieName }
+		variables: { searchField: searchValue }
 	});
+
+	const handleInputChange = e => {
+		setSearchValue(e.target.value);
+	};
+
+	const resetInputField = () => {
+		setSearchValue("");
+	};
+
+	const callSearch = e => {
+		e.preventDefault();
+		props.search(searchValue);
+		resetInputField();
+	};
 
 	if (loading) return <h1>Loading...</h1>;
 
 	const renderMovies = () => {
+		if (searchValue === "") {
+			return <h1>Loading</h1>;
+		}
 		return data.movieSearch.map(movie => {
 			return (
 				<li key={movie.id}>
@@ -30,7 +49,10 @@ const MovieSearch = props => {
 
 	return (
 		<div style={{ width: "100%" }}>
-			<Search />
+			<form>
+				<input value={searchValue} onChange={handleInputChange} type="text" />
+				<input onClick={callSearch} type="submit" value="Search" />
+			</form>
 			<Box
 				display="flex"
 				p={1}
