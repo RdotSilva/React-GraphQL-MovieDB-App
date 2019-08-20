@@ -17,7 +17,12 @@ const Search = props => {
 		resetInputField();
 	};
 
-	return <div />;
+	return (
+		<form>
+			<input value={searchValue} onChange={handleInputChange} type="text" />
+			<input onClick={callSearch} type="submit" value="Search" />
+		</form>
+	);
 };
 
 export default Search;
