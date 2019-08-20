@@ -1,6 +1,6 @@
 import React from "react";
 import { useQuery } from "@apollo/react-hooks";
-import { GET_MOVIE_INFO, SEARCH_MOVIES } from "../queries/queries";
+import { SEARCH_MOVIES } from "../queries/queries";
 import MovieCard from "../components/MovieCard";
 import Search from "../components/Search";
 import { Link } from "react-router-dom";
@@ -17,11 +17,15 @@ const MovieSearch = props => {
 	});
 
 	if (loading) return <h1>Loading...</h1>;
-	console.log(data);
 
-	const renderMovieInfo = () => {
-		// return <MovieCard movieData={movieInfo} />;
-		return <h1>Test</h1>;
+	const renderMovies = () => {
+		return data.movieSearch.map(movie => {
+			return (
+				<li key={movie.id}>
+					<MovieCard movieData={movie} />
+				</li>
+			);
+		});
 	};
 
 	return (
@@ -34,7 +38,7 @@ const MovieSearch = props => {
 				justifyContent="center"
 				flexWrap="wrap"
 			>
-				{renderMovieInfo()}
+				{renderMovies()}
 			</Box>
 		</div>
 	);
