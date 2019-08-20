@@ -21,6 +21,13 @@ const NewMoviesType = new GraphQLObjectType({
 	}
 });
 
+const MovieIdType = new GraphQLObjectType({
+	name: "MovieId",
+	fields: {
+		id: { type: GraphQLInt }
+	}
+});
+
 const VideoType = new GraphQLObjectType({
 	name: "Video",
 	fields: {
@@ -132,6 +139,25 @@ const RootQuery = new GraphQLObjectType({
 						}&language=en-US&page=1`
 					)
 					.then(res => res.data.results);
+			}
+		},
+		movieId: {
+			type: MovieIdType,
+			args: { movieName: { type: GraphQLString } },
+			resolve(parentValue, args) {
+				return axios
+					.get(
+						`https://api.themoviedb.org/3/search/movie?api_key=${
+							keys.apiKey
+						}&language=en-US&query=${
+							args.movieName
+						}t&page=1&include_adult=false`
+					)
+					.then(res => {
+						const movieID = res.data.id;
+
+						return movieID;
+					});
 			}
 		},
 		movieCredits: {
