@@ -21,10 +21,20 @@ const NewMoviesType = new GraphQLObjectType({
 	}
 });
 
-const MovieIdType = new GraphQLObjectType({
-	name: "MovieId",
+const MovieSearchType = new GraphQLObjectType({
+	name: "MovieSearch",
 	fields: {
-		id: { type: GraphQLInt }
+		id: { type: GraphQLInt },
+		overview: { type: GraphQLString },
+		title: { type: GraphQLString },
+		poster_path: { type: GraphQLString },
+		genres: { type: GraphQLString },
+		release_date: { type: GraphQLString },
+		vote_average: { type: GraphQLString },
+		production_companies: { type: GraphQLString },
+		vote_average: { type: GraphQLString },
+		runtime: { type: GraphQLString },
+		imdb_id: { type: GraphQLString }
 	}
 });
 
@@ -141,22 +151,20 @@ const RootQuery = new GraphQLObjectType({
 					.then(res => res.data.results);
 			}
 		},
-		movieId: {
-			type: MovieIdType,
-			args: { movieName: { type: GraphQLString } },
+		movieSearch: {
+			type: MovieSearchType,
+			args: { searchField: { type: GraphQLString } },
 			resolve(parentValue, args) {
 				return axios
 					.get(
 						`https://api.themoviedb.org/3/search/movie?api_key=${
 							keys.apiKey
 						}&language=en-US&query=${
-							args.movieName
-						}t&page=1&include_adult=false`
+							args.searchField
+						}&page=1&include_adult=false`
 					)
 					.then(res => {
-						const movieID = res.data.id;
-
-						return movieID;
+						console.log(res.data);
 					});
 			}
 		},
