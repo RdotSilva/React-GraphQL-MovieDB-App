@@ -1,6 +1,6 @@
 import React from "react";
 import { useQuery } from "@apollo/react-hooks";
-import { GET_MOVIE_INFO } from "../queries/queries";
+import { GET_MOVIE_INFO, SEARCH_MOVIES } from "../queries/queries";
 import MovieCard from "../components/MovieCard";
 import Search from "../components/Search";
 import { Link } from "react-router-dom";
@@ -9,18 +9,19 @@ import { Link } from "react-router-dom";
 import Box from "@material-ui/core/Box";
 
 // Use this for testing
-const hardCodedMovieId = "284054";
+const hardCodedMovieName = "red";
 
 const MovieSearch = props => {
-	const { loading, data } = useQuery(GET_MOVIE_INFO, {
-		variables: { id: hardCodedMovieId }
+	const { loading, data } = useQuery(SEARCH_MOVIES, {
+		variables: { searchField: hardCodedMovieName }
 	});
 
 	if (loading) return <h1>Loading...</h1>;
-	const { movieInfo } = data;
+	console.log(data);
 
 	const renderMovieInfo = () => {
-		return <MovieCard movieData={movieInfo} />;
+		// return <MovieCard movieData={movieInfo} />;
+		return <h1>Test</h1>;
 	};
 
 	return (

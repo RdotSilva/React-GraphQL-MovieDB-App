@@ -30,18 +30,14 @@ const GET_MOVIE_INFO = gql`
 `;
 
 const SEARCH_MOVIES = gql`
-	{
-		movieSearch($searchField: String) {
-			movieSearch(searchField: $searchField)
+	query movieSearch($searchField: String) {
+		movieSearch(searchField: $searchField) {
 			id
 			poster_path
 			overview
 			release_date
 			title
 			imdb_id
-			videos {
-				id
-				key
 		}
 	}
 `;
