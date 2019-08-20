@@ -152,7 +152,7 @@ const RootQuery = new GraphQLObjectType({
 			}
 		},
 		movieSearch: {
-			type: MovieSearchType,
+			type: new GraphQLList(MovieSearchType),
 			args: { searchField: { type: GraphQLString } },
 			resolve(parentValue, args) {
 				return axios
@@ -164,7 +164,7 @@ const RootQuery = new GraphQLObjectType({
 						}&page=1&include_adult=false`
 					)
 					.then(res => {
-						console.log(res.data);
+						console.log(res.data.results);
 					});
 			}
 		},
