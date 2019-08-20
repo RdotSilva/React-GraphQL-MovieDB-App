@@ -2,6 +2,7 @@ import React from "react";
 import { useQuery } from "@apollo/react-hooks";
 import { GET_MOVIE_INFO } from "../queries/queries";
 import MovieCard from "../components/MovieCard";
+import Search from "../components/Search";
 import { Link } from "react-router-dom";
 
 // Material UI
@@ -24,6 +25,7 @@ const MovieSearch = props => {
 
 	return (
 		<div style={{ width: "100%" }}>
+			<Search />
 			<Box
 				display="flex"
 				p={1}
