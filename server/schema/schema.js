@@ -163,7 +163,15 @@ const RootQuery = new GraphQLObjectType({
 							args.searchField
 						}&page=1&include_adult=false`
 					)
-					.then(res => res.data.results);
+					.then(res => {
+						movies = res.data.results;
+						movies.map(movie => {
+							(movie.imdb_id = `https://www.imdb.com/title/${movie.imdb_id}`),
+								(movie.poster_path =
+									"https://image.tmdb.org/t/p/w500" + movie.poster_path);
+						});
+						return movies;
+					});
 			}
 		},
 		movieCredits: {
