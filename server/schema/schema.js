@@ -163,9 +163,7 @@ const RootQuery = new GraphQLObjectType({
 							args.searchField
 						}&page=1&include_adult=false`
 					)
-					.then(res => {
-						console.log(res.data.results);
-					});
+					.then(res => res.data.results);
 			}
 		},
 		movieCredits: {
