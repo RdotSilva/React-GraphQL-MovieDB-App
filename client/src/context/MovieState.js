@@ -9,3 +9,5 @@ const MovieState = props => {
 		loading: false
 	};
 };
+
+const [state, dispatch] = useReducer(MovieReducer, initialState);
