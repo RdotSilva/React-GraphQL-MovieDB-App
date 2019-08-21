@@ -5,6 +5,7 @@ import MovieReducer from "./movieReducer";
 import keys from "../../../keys/devKeys";
 import { useQuery } from "@apollo/react-hooks";
 import { SEARCH_MOVIES } from "../queries/queries";
+import { SET_LOADING, FETCH_TOP_MOVIES } from "./types";
 
 const MovieState = props => {
 	const initialState = {
@@ -15,9 +16,21 @@ const MovieState = props => {
 
 	const [state, dispatch] = useReducer(MovieReducer, initialState);
 
-	const { loading, data } = useQuery(SEARCH_MOVIES, {
+	const { loadingOne, dataOne } = useQuery(SEARCH_MOVIES, {
 		variables: { searchField: searchValue }
 	});
+
+	const getNewMovies = async () => {
+		setLoading();
+		const { data } = await useQuery(getNewMovies);
+		dispatch({
+			type: FETCH_TOP_MOVIES,
+			payload: data
+		});
+	};
+
+	// Set Loading
+	const setLoading = () => dispatch({ type: SET_LOADING });
 
 	return (
 		<MovieContext.Provider
