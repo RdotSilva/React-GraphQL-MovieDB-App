@@ -30,9 +30,6 @@ const MovieSearch = props => {
 	// if (loading) return <h1>Loading...</h1>;
 
 	const renderMovies = () => {
-		if (data.movieSearch.length < 1) {
-			return <h1>NO DATA</h1>;
-		}
 		return data.movieSearch.map(movie => {
 			return (
 				<li key={movie.id}>
