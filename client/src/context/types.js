@@ -1,0 +1,3 @@
+export const SEARCH_MOVIES = "SEARCH_MOVIES";
+export const FETCH_TOP_MOVIES = "FETCH_TOP_MOVIES";
+export const SET_LOADING = "SET_LOADING";
