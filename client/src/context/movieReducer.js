@@ -2,6 +2,12 @@ import { SEARCH_MOVIES, SET_LOADING, FETCH_TOP_MOVIES } from "./types";
 
 export default (state, action) => {
 	switch (action.type) {
+		case SEARCH_MOVIES:
+			return {
+				...state,
+				searchMovies: action.payload,
+				loading: false
+			};
 		default:
 			return state;
 	}
