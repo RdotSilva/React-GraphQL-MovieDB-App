@@ -18,4 +18,18 @@ const MovieState = props => {
 	const { loading, data } = useQuery(SEARCH_MOVIES, {
 		variables: { searchField: searchValue }
 	});
+
+	return (
+		<MovieContext.Provider
+			value={{
+				newMovies: state.newMovies,
+				searchMovies: state.searchMovies,
+				loading: state.loading
+			}}
+		>
+			{props.children}
+		</MovieContext.Provider>
+	);
 };
+
+export default MovieState;
