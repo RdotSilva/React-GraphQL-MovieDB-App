@@ -2,17 +2,12 @@ import React, { useState } from "react";
 import { useQuery } from "@apollo/react-hooks";
 import { SEARCH_MOVIES } from "../queries/queries";
 import MovieCard from "../components/MovieCard";
-import Search from "../components/Search";
-import { Link } from "react-router-dom";
 
 // Material UI
 import Box from "@material-ui/core/Box";
 
-// Use this for testing
-const hardCodedMovieName = "red";
-
 const MovieSearch = props => {
-	const [searchValue, setSearchValue] = useState("");
+	const [searchValue, setSearchValue] = useState(" ");
 
 	const { loading, data } = useQuery(SEARCH_MOVIES, {
 		variables: { searchField: searchValue }
@@ -32,11 +27,11 @@ const MovieSearch = props => {
 		resetInputField();
 	};
 
-	if (loading) return <h1>Loading...</h1>;
+	// if (loading) return <h1>Loading...</h1>;
 
 	const renderMovies = () => {
-		if (searchValue === "") {
-			return <h1>Loading</h1>;
+		if (data.movieSearch.length < 1) {
+			return <h1>NO DATA</h1>;
 		}
 		return data.movieSearch.map(movie => {
 			return (
@@ -60,7 +55,7 @@ const MovieSearch = props => {
 				justifyContent="center"
 				flexWrap="wrap"
 			>
-				{renderMovies()}
+				{loading ? <h1> </h1> : renderMovies()}
 			</Box>
 		</div>
 	);
