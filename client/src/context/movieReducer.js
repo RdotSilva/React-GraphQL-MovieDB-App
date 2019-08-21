@@ -8,6 +8,12 @@ export default (state, action) => {
 				searchMovies: action.payload,
 				loading: false
 			};
+		case FETCH_TOP_MOVIES:
+			return {
+				...state,
+				newMovies: action.payload,
+				loading: false
+			};
 		default:
 			return state;
 	}
