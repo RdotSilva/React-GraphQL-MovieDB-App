@@ -13,15 +13,6 @@ const NewMovies = props => {
 	}, []);
 
 	const { newMovies } = movieContext;
-	const { loading } = movieContext;
-
-	const test = e => {
-		// Function used for testing, DELETE
-		e.preventDefault();
-		// movieContext.fetchNewMovies();
-		// console.log(newMovies);
-		// renderMovies(newMovies.newMovies);
-	};
 
 	const renderMovies = newMovies => {
 		return newMovies.map(movie => {
