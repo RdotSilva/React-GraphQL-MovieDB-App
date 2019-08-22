@@ -12,6 +12,12 @@ const NewMovies = props => {
 		movieContext.fetchNewMovies();
 	}, []);
 
+	const test = e => {
+		e.preventDefault();
+		movieContext.fetchNewMovies();
+		console.log(movieContext.newMovies);
+	};
+
 	// if (loading) {
 	// 	return <h1>Loading...</h1>;
 	// }
