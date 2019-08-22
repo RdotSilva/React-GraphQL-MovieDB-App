@@ -29,7 +29,7 @@ const NewMovies = props => {
 			<Box
 				display="flex"
 				p={1}
-				bgcolor="background.paper"
+				bgcolor="#ecf2f9"
 				justifyContent="center"
 				flexWrap="wrap"
 			>
