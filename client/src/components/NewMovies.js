@@ -17,7 +17,7 @@ const NewMovies = props => {
 	const renderMovies = newMovies => {
 		return newMovies.map(movie => {
 			return (
-				<li key={movie.id}>
+				<li style={{ listStyle: "none" }} key={movie.id}>
 					<MovieCard movieData={movie} />
 				</li>
 			);
