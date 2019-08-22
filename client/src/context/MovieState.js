@@ -12,9 +12,9 @@ const MovieState = props => {
 		loading: false
 	};
 
-	const { data } = useQuery(getNewMovies);
-
 	const [state, dispatch] = useReducer(MovieReducer, initialState);
+
+	const { data } = useQuery(getNewMovies);
 
 	const fetchNewMovies = () => {
 		setLoading();
