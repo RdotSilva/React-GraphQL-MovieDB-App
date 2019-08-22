@@ -8,6 +8,10 @@ import Box from "@material-ui/core/Box";
 const NewMovies = props => {
 	const movieContext = useContext(MovieContext);
 
+	useEffect(() => {
+		movieContext.fetchNewMovies();
+	}, []);
+
 	// if (loading) {
 	// 	return <h1>Loading...</h1>;
 	// }
