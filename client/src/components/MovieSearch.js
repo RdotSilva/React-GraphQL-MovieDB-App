@@ -6,6 +6,9 @@ import MovieCard from "../components/MovieCard";
 // Material UI
 import Box from "@material-ui/core/Box";
 
+// Set background color
+document.body.style.backgroundColor = "#ecf2f9";
+
 const MovieSearch = props => {
 	const [searchValue, setSearchValue] = useState(" ");
 
@@ -40,7 +43,7 @@ const MovieSearch = props => {
 	};
 
 	return (
-		<div style={{ width: "100%", height: "100%", backgroundColor: "#ecf2f9" }}>
+		<div style={{ width: "100%", backgroundColor: "#ecf2f9" }}>
 			<form style={{ display: "block", textAlign: "center" }}>
 				<input value={searchValue} onChange={handleInputChange} type="text" />
 				<input
