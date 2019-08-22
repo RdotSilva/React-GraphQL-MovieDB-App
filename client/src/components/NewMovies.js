@@ -45,7 +45,11 @@ const NewMovies = props => {
 				justifyContent="center"
 				flexWrap="wrap"
 			/>
-			<h1>Test</h1>
+			{typeof newMovies.newMovies === "undefined" ? (
+				<h1 />
+			) : (
+				renderMovies(newMovies.newMovies)
+			)}
 		</div>
 	);
 };
