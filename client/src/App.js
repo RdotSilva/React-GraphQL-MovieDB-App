@@ -7,19 +7,23 @@ import NewMovies from "./components/NewMovies";
 import MovieSearch from "./components/MovieSearch";
 import Navbar from "./components/layout/Navbar";
 
+import MovieState from "./context/MovieState";
+
 const client = new ApolloClient({
 	uri: "http://localhost:4000/graphql"
 });
 
 const App = () => (
 	<ApolloProvider client={client}>
-		<Router>
-			<Navbar />
-			<Switch>
-				<Route path="/newmovies" component={NewMovies} />
-				<Route path="/moviesearch" component={MovieSearch} />
-			</Switch>
-		</Router>
+		<MovieState>
+			<Router>
+				<Navbar />
+				<Switch>
+					<Route path="/newmovies" component={NewMovies} />
+					<Route path="/moviesearch" component={MovieSearch} />
+				</Switch>
+			</Router>
+		</MovieState>
 	</ApolloProvider>
 );
 
