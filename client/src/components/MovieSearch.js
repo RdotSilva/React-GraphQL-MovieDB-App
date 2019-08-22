@@ -40,7 +40,7 @@ const MovieSearch = props => {
 	};
 
 	return (
-		<div style={{ width: "100%" }}>
+		<div style={{ width: "100%", backgroundColor: "#ecf2f9" }}>
 			<form>
 				<input value={searchValue} onChange={handleInputChange} type="text" />
 				<input onClick={callSearch} type="submit" value="Search" />
@@ -48,7 +48,7 @@ const MovieSearch = props => {
 			<Box
 				display="flex"
 				p={1}
-				bgcolor="background.paper"
+				bgcolor="#ecf2f9"
 				justifyContent="center"
 				flexWrap="wrap"
 			>
