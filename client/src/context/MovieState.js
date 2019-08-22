@@ -12,11 +12,12 @@ const MovieState = props => {
 		loading: false
 	};
 
+	const { data } = useQuery(getNewMovies);
+
 	const [state, dispatch] = useReducer(MovieReducer, initialState);
 
-	const fetchNewMovies = async () => {
+	const fetchNewMovies = () => {
 		setLoading();
-		const { data } = await useQuery(getNewMovies);
 		dispatch({
 			type: FETCH_TOP_MOVIES,
 			payload: data
