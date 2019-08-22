@@ -4,7 +4,7 @@ import MovieContext from "./movieContext";
 import MovieReducer from "./movieReducer";
 import keys from "../../../keys/devKeys";
 import { useQuery } from "@apollo/react-hooks";
-import { SEARCH_MOVIES } from "../queries/queries";
+import { SEARCH_MOVIES, getNewMovies } from "../queries/queries";
 import { SET_LOADING, FETCH_TOP_MOVIES } from "./types";
 
 const MovieState = props => {
@@ -16,11 +16,11 @@ const MovieState = props => {
 
 	const [state, dispatch] = useReducer(MovieReducer, initialState);
 
-	const { loadingOne, dataOne } = useQuery(SEARCH_MOVIES, {
-		variables: { searchField: searchValue }
-	});
+	// const { loadingOne, dataOne } = useQuery(SEARCH_MOVIES, {
+	// 	variables: { searchField: searchValue }
+	// });
 
-	const getNewMovies = async () => {
+	const fetchNewMovies = async () => {
 		setLoading();
 		const { data } = await useQuery(getNewMovies);
 		dispatch({
@@ -37,7 +37,8 @@ const MovieState = props => {
 			value={{
 				newMovies: state.newMovies,
 				searchMovies: state.searchMovies,
-				loading: state.loading
+				loading: state.loading,
+				fetchNewMovies
 			}}
 		>
 			{props.children}
