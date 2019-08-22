@@ -32,12 +32,13 @@ const NewMovies = props => {
 				bgcolor="background.paper"
 				justifyContent="center"
 				flexWrap="wrap"
-			/>
-			{typeof newMovies.newMovies === "undefined" ? (
-				<h1 />
-			) : (
-				renderMovies(newMovies.newMovies)
-			)}
+			>
+				{typeof newMovies.newMovies === "undefined" ? (
+					<h1 />
+				) : (
+					renderMovies(newMovies.newMovies)
+				)}
+			</Box>
 		</div>
 	);
 };
