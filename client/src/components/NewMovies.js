@@ -12,25 +12,26 @@ const NewMovies = props => {
 		movieContext.fetchNewMovies();
 	}, []);
 
+	const { newMovies } = movieContext;
+	const { loading } = movieContext;
+
 	const test = e => {
+		// Function used for testing, DELETE
 		e.preventDefault();
-		movieContext.fetchNewMovies();
-		console.log(movieContext.newMovies);
+		// movieContext.fetchNewMovies();
+		// console.log(newMovies);
+		// renderMovies(newMovies.newMovies);
 	};
 
-	// if (loading) {
-	// 	return <h1>Loading...</h1>;
-	// }
-
-	// const renderMovies = () => {
-	// 	return data.newMovies.map(movie => {
-	// 		return (
-	// 			<li key={movie.id}>
-	// 				<MovieCard movieData={movie} />
-	// 			</li>
-	// 		);
-	// 	});
-	// };
+	const renderMovies = newMovies => {
+		return newMovies.map(movie => {
+			return (
+				<li key={movie.id}>
+					<MovieCard movieData={movie} />
+				</li>
+			);
+		});
+	};
 
 	return (
 		<div style={{ width: "100%" }}>
@@ -44,6 +45,7 @@ const NewMovies = props => {
 				justifyContent="center"
 				flexWrap="wrap"
 			/>
+			<h1>Test</h1>
 		</div>
 	);
 };
