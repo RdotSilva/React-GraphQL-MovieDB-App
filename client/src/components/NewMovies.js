@@ -26,9 +26,6 @@ const NewMovies = props => {
 
 	return (
 		<div style={{ width: "100%" }}>
-			<form>
-				<input onClick={test} type="submit" value="test" />
-			</form>
 			<Box
 				display="flex"
 				p={1}
