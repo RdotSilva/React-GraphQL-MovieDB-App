@@ -1,39 +1,39 @@
-import React from "react";
-import { useQuery } from "@apollo/react-hooks";
-import { getNewMovies } from "../queries/queries";
+import React, { useContext, useEffect } from "react";
 import MovieCard from "../components/MovieCard";
-import { Link } from "react-router-dom";
+import MovieContext from "../context/movieContext";
 
 // Material UI
 import Box from "@material-ui/core/Box";
 
 const NewMovies = props => {
-	const { loading, data } = useQuery(getNewMovies);
-	console.log(data.newMovies);
+	const movieContext = useContext(MovieContext);
 
-	if (loading) return <h1>Loading...</h1>;
+	// if (loading) {
+	// 	return <h1>Loading...</h1>;
+	// }
 
-	const renderMovies = () => {
-		return data.newMovies.map(movie => {
-			return (
-				<li key={movie.id}>
-					<MovieCard movieData={movie} />
-				</li>
-			);
-		});
-	};
+	// const renderMovies = () => {
+	// 	return data.newMovies.map(movie => {
+	// 		return (
+	// 			<li key={movie.id}>
+	// 				<MovieCard movieData={movie} />
+	// 			</li>
+	// 		);
+	// 	});
+	// };
 
 	return (
 		<div style={{ width: "100%" }}>
+			<form>
+				<input onClick={test} type="submit" value="test" />
+			</form>
 			<Box
 				display="flex"
 				p={1}
 				bgcolor="background.paper"
 				justifyContent="center"
 				flexWrap="wrap"
-			>
-				{renderMovies()}
-			</Box>
+			/>
 		</div>
 	);
 };
