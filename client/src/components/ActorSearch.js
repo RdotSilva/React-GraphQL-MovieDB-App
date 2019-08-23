@@ -7,6 +7,10 @@ const ActorSearch = () => {
 		setSearchValue(e.target.value);
 	};
 
+	const resetInputField = () => {
+		setSearchValue("");
+	};
+
 	return <h1>Actor List</h1>;
 };
 
