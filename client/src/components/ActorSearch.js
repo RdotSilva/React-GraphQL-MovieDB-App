@@ -11,6 +11,12 @@ const ActorSearch = () => {
 		setSearchValue("");
 	};
 
+	const callSearch = e => {
+		e.preventDefault();
+		props.search(searchValue);
+		resetInputField();
+	};
+
 	return <h1>Actor List</h1>;
 };
 
