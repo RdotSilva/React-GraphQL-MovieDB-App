@@ -42,6 +42,16 @@ const SEARCH_MOVIES = gql`
 	}
 `;
 
+const SEARCH_ACTORS = gql`
+	query actorSearch($searchField: String) {
+		actorSearch(searchField: $searchField) {
+			id
+			profile_path
+			name
+		}
+	}
+`;
+
 const getMovieInfo = gql`
 	{
 		movieInfo(id: "284054") {
