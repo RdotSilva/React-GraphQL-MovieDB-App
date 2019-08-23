@@ -5,6 +5,7 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
 import NewMovies from "./components/NewMovies";
 import MovieSearch from "./components/MovieSearch";
+import ActorSearch from "./components/ActorSearch";
 import Navbar from "./components/layout/Navbar";
 
 import MovieState from "./context/MovieState";
@@ -21,6 +22,7 @@ const App = () => (
 				<Switch>
 					<Route path="/newmovies" component={NewMovies} />
 					<Route path="/moviesearch" component={MovieSearch} />
+					<Route path="/actorsearch" component={ActorSearch} />
 				</Switch>
 			</Router>
 		</MovieState>
