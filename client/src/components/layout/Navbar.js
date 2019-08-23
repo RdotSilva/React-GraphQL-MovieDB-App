@@ -41,6 +41,14 @@ const Navbar = props => {
 							Search Movies
 						</Link>
 					</Typography>
+					<Typography variant="h6" className={classes.title}>
+						<Link
+							to="/actorsearch"
+							style={{ textDecoration: "none", color: "#FFF" }}
+						>
+							Search Actors
+						</Link>
+					</Typography>
 					{/* <Button color="inherit">Login</Button> */}
 				</Toolbar>
 			</AppBar>
