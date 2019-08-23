@@ -183,6 +183,28 @@ const RootQuery = new GraphQLObjectType({
 					});
 			}
 		},
+		actorSearch: {
+			type: new GraphQLList(ActorType),
+			args: { searchField: { type: GraphQLString } },
+			resolve(parentValue, args) {
+				return axios
+					.get(
+						`https://api.themoviedb.org/3/search/person?api_key=${
+							keys.apiKey
+						}&language=en-US&query=${
+							args.searchField
+						}&page=1&include_adult=false`
+					)
+					.then(res => {
+						actors = res.data.results;
+						actors.map(actor => {
+							actor.profile_path =
+								"https://image.tmdb.org/t/p/w500" + actor.profile_path;
+						});
+						return actors;
+					});
+			}
+		},
 		movieCredits: {
 			type: new GraphQLList(MovieCreditsType),
 			args: { id: { type: GraphQLString } },
