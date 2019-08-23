@@ -21,6 +21,15 @@ const NewMoviesType = new GraphQLObjectType({
 	}
 });
 
+const ActorType = new GraphQLObjectType({
+	name: "ActorSearch",
+	fields: {
+		id: { type: GraphQLInt },
+		profile_path: { type: GraphQLString },
+		name: { type: GraphQLString }
+	}
+});
+
 const MovieSearchType = new GraphQLObjectType({
 	name: "MovieSearch",
 	fields: {
