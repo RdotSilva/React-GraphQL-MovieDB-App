@@ -1,5 +1,7 @@
 import React, { useState, useEffect, useContext } from "react";
 import ActorContext from "../context/actor/actorContext";
+import { useQuery } from "@apollo/react-hooks";
+import { SEARCH_ACTOR } from "../queries/queries";
 
 // Material UI
 import Box from "@material-ui/core/Box";
