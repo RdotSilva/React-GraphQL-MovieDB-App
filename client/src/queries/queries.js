@@ -42,7 +42,7 @@ const SEARCH_MOVIES = gql`
 	}
 `;
 
-const SEARCH_ACTORS = gql`
+const SEARCH_ACTOR = gql`
 	query actorSearch($searchField: String) {
 		actorSearch(searchField: $searchField) {
 			id
