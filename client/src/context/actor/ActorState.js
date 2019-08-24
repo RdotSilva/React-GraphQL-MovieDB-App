@@ -13,8 +13,6 @@ const ActorState = props => {
 
 	const [state, dispatch] = useReducer(ActorReducer, initialState);
 
-	const { data } = useQuery(SEARCH_ACTOR);
-
 	const searchForActors = () => {
 		setLoading();
 		dispatch({

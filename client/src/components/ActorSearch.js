@@ -9,6 +9,10 @@ const ActorSearch = props => {
 
 	const actorContext = useContext(ActorContext);
 
+	const { data } = useQuery(SEARCH_ACTOR, {
+		variables: { searchField: searchValue }
+	});
+
 	const handleInputChange = e => {
 		setSearchValue(e.target.value);
 	};
@@ -19,7 +23,7 @@ const ActorSearch = props => {
 
 	const callSearch = e => {
 		e.preventDefault();
-		actorContext.searchForActors(searchValue);
+		actorContext.searchForActors(data);
 		resetInputField();
 	};
 
