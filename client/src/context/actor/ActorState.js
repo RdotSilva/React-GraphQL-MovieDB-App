@@ -2,8 +2,8 @@ import React, { useReducer } from "react";
 import ActorContext from "./actorContext";
 import ActorReducer from "./actorReducer";
 import { useQuery } from "@apollo/react-hooks";
-import { SEARCH_ACTOR } from "../queries/queries";
-import { SET_LOADING, SEARCH_ACTORS } from "./types";
+import { SEARCH_ACTOR } from "../../queries/queries";
+import { SET_LOADING, SEARCH_ACTORS } from "../types";
 
 const ActorState = props => {
 	const initialState = {
