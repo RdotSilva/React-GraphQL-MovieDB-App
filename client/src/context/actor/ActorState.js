@@ -1,6 +1,6 @@
 import React, { useReducer } from "react";
 import ActorContext from "./actorContext";
-import ActorReducer from "./actorreducer";
+import ActorReducer from "./actorReducer";
 import { useQuery } from "@apollo/react-hooks";
 import { SEARCH_ACTOR } from "../queries/queries";
 import { SET_LOADING, SEARCH_ACTORS } from "./types";
