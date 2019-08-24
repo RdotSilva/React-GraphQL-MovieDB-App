@@ -11,7 +11,7 @@ const ActorSearch = props => {
 
 	const actorContext = useContext(ActorContext);
 
-	const { data } = useQuery(SEARCH_ACTOR, {
+	const { data, loading } = useQuery(SEARCH_ACTOR, {
 		variables: { searchField: searchValue }
 	});
 
@@ -27,6 +27,12 @@ const ActorSearch = props => {
 		e.preventDefault();
 		actorContext.searchForActors(data);
 		resetInputField();
+	};
+
+	const renderActors = () => {
+		return data.actorSearch.map(actor => {
+			return <li key={actor.id}>{actor.name}</li>;
+		});
 	};
 
 	return (
@@ -47,7 +53,7 @@ const ActorSearch = props => {
 				justifyContent="center"
 				flexWrap="wrap"
 			>
-				{/* {loading ? <h1> </h1> : renderMovies()} */}
+				{loading ? <h1> </h1> : renderActors()}
 			</Box>
 		</div>
 	);
