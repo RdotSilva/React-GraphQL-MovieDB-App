@@ -1,10 +1,13 @@
 import React, { useState, useEffect, useContext } from "react";
+import ActorContext from "../context/actor/actorContext";
 
 // Material UI
 import Box from "@material-ui/core/Box";
 
 const ActorSearch = props => {
 	const [searchValue, setSearchValue] = useState(" ");
+
+	const actorContext = useContext(ActorContext);
 
 	const handleInputChange = e => {
 		setSearchValue(e.target.value);
