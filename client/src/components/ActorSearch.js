@@ -19,7 +19,7 @@ const ActorSearch = props => {
 
 	const callSearch = e => {
 		e.preventDefault();
-		props.search(searchValue);
+		actorContext.searchForActors(searchValue);
 		resetInputField();
 	};
 
