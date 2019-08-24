@@ -10,6 +10,10 @@ const ActorState = props => {
 		actors: [],
 		loading: false
 	};
+
+	const [state, dispatch] = useReducer(ActorReducer, initialState);
+
+	const { data } = useQuery(SEARCH_ACTOR);
 };
 
 export default ActorState;
