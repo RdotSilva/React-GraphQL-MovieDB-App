@@ -18,7 +18,7 @@ const ActorState = props => {
 	const searchForActors = () => {
 		setLoading();
 		dispatch({
-			type: FETCH_TOP_MOVIES,
+			type: SEARCH_ACTORS,
 			payload: data
 		});
 	};
