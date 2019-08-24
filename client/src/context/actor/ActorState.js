@@ -22,6 +22,21 @@ const ActorState = props => {
 			payload: data
 		});
 	};
+
+	// Set Loading
+	const setLoading = () => dispatch({ type: SET_LOADING });
+
+	return (
+		<ActorContext.Provider
+			value={{
+				actors: state.newMovies,
+				loading: state.loading,
+				searchForActors
+			}}
+		>
+			{props.children}
+		</ActorContext.Provider>
+	);
 };
 
 export default ActorState;
