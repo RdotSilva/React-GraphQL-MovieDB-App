@@ -69,4 +69,10 @@ const getMovieInfo = gql`
 	}
 `;
 
-export { getNewMovies, getMovieInfo, GET_MOVIE_INFO, SEARCH_MOVIES };
+export {
+	getNewMovies,
+	getMovieInfo,
+	GET_MOVIE_INFO,
+	SEARCH_MOVIES,
+	SEARCH_ACTOR
+};
